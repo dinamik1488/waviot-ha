@@ -12,7 +12,7 @@ class WaviotCoordinator(DataUpdateCoordinator):
 
         super().__init__(
             hass,
-            logger=_LOGGER,   # ✅ ВОТ ЭТО ОБЯЗАТЕЛЬНО
+            logger=_LOGGER,   # ✅ ОБЯЗАТЕЛЬНО
             name="waviot",
             update_interval=timedelta(minutes=5),
         )
