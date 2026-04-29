@@ -22,6 +22,6 @@ class WaviotCoordinator(DataUpdateCoordinator):
         values = await self.api.get_values()
 
         return {
-            "modem": modem.get("modem", {}),
-            "values": values.get("registrators", {})
+            "modem": modem.get("modem", modem),
+            "values": values.get("registrators", values.get("values", {}))
         }
