@@ -1,13 +1,18 @@
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
+import logging
 from datetime import timedelta
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from .api import WaviotAPI
 
+_LOGGER = logging.getLogger(__name__)
+
 class WaviotCoordinator(DataUpdateCoordinator):
+
     def __init__(self, hass, modem_id, api_key):
         self.api = WaviotAPI(modem_id, api_key)
 
         super().__init__(
             hass,
+            logger=_LOGGER,   # ✅ ВОТ ЭТО ОБЯЗАТЕЛЬНО
             name="waviot",
             update_interval=timedelta(minutes=5),
         )
