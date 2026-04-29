@@ -8,6 +8,7 @@ _LOGGER = logging.getLogger(__name__)
 class WaviotCoordinator(DataUpdateCoordinator):
 
     def __init__(self, hass, modem_id, api_key):
+
         self.api = WaviotAPI(modem_id, api_key)
 
         super().__init__(
@@ -18,6 +19,7 @@ class WaviotCoordinator(DataUpdateCoordinator):
         )
 
     async def _async_update_data(self):
+
         modem = await self.api.get_modem()
         values = await self.api.get_values()
 
