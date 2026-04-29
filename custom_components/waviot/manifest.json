@@ -4,5 +4,8 @@
   "version": "17.0.0",
   "config_flow": true,
   "iot_class": "cloud_polling",
-  "requirements": ["aiohttp"]
+  "requirements": ["aiohttp"],
+
+  "documentation": "https://github.com/dinamik1488/waviot-ha",
+  "issue_tracker": "https://github.com/dinamik1488/waviot-ha/issues"
 }
