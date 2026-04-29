@@ -1,5 +1,3 @@
-from .coordinator import WaviotCoordinator
-
 async def async_setup_entry(hass, entry):
     coordinator = WaviotCoordinator(
         hass,
@@ -12,12 +10,6 @@ async def async_setup_entry(hass, entry):
     hass.data.setdefault("waviot", {})
     hass.data["waviot"][entry.entry_id] = coordinator
 
-    hass.config_entries.async_forward_entry_setups(entry, ["sensor"])
+    await hass.config_entries.async_forward_entry_setups(entry, ["sensor"])
+
     return True
-
-
-async def async_unload_entry(hass, entry):
-    unload_ok = await hass.config_entries.async_unload_platforms(entry, ["sensor"])
-    if unload_ok:
-        hass.data["waviot"].pop(entry.entry_id)
-    return unload_ok
