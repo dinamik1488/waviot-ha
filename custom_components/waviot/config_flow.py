@@ -16,5 +16,7 @@ class WaviotConfigFlow(config_entries.ConfigFlow, domain="waviot"):
             data_schema=vol.Schema({
                 vol.Required("modem_id"): str,
                 vol.Required("api_key"): str,
+                vol.Required("tariff_day"): float,
+                vol.Required("tariff_night"): float,
             }),
         )
