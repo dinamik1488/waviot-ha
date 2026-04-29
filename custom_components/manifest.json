@@ -1,8 +1,0 @@
-{
-  "domain": "waviot",
-  "name": "WAVIoT Energy",
-  "version": "17.0.0",
-  "config_flow": true,
-  "iot_class": "cloud_polling",
-  "requirements": ["aiohttp"]
-}
